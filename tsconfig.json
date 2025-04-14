@@ -18,7 +18,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["node", "axios"],
+    "typeRoots": ["./node_modules/@types"],
+    "noImplicitAny": false
   },
   "include": [
     "src"

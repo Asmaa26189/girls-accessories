@@ -1,0 +1,10 @@
+# Project Commands
+
+## Development
+npm start - Starts the development server
+npm run build - Creates a production build
+npm test - Runs tests
+npm run eject - Ejects from Create React App (one-way operation)
+
+## Project Setup
+npm install - Installs all dependencies 

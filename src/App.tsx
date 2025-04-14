@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme, customThemeProps as custom } from './config/theme';
+import styled from '@emotion/styled';
+import HomePage from './components/home/HomePage';
+import CategoryPage from './components/category/CategoryPage';
 
-function App() {
+const AppContainer = styled('div')`
+  min-height: 100vh;
+  background-color: ${custom.colors.background.main};
+  background-image: ${custom.colors.background.gradient};
+  overflow-x: hidden;
+
+  @media (max-width: ${custom.breakpoints.sm}) {
+    background-attachment: fixed;
+  }
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/category/:categoryName" element={<CategoryPage />} />
+          </Routes>
+        </Router>
+      </AppContainer>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
