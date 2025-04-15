@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Typography, IconButton } from '@mui/material';
@@ -11,20 +11,27 @@ const CategoryContainer = styled.div`
   background: ${custom.colors.background.gradient};
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
 `;
 
 const BackButton = styled(IconButton)`
-  position: absolute;
+  position: fixed;
   top: ${custom.spacing.lg};
   left: ${custom.spacing.lg};
   color: ${custom.colors.text.primary};
   background: ${custom.colors.background.light};
   box-shadow: ${custom.shadows.medium};
   transition: transform 0.3s ease;
+  z-index: 10;
 
   &:hover {
     transform: translateX(-4px);
     background: ${custom.colors.background.light};
+  }
+
+  @media (max-width: ${custom.breakpoints.sm}) {
+    top: ${custom.spacing.md};
+    left: ${custom.spacing.md};
   }
 `;
 
@@ -35,10 +42,12 @@ const CategoryTitle = styled.h1`
   font-size: ${custom.typography.fontSize.xxl};
   font-weight: ${custom.typography.fontWeight.bold};
   text-shadow: ${custom.shadows.glow};
+  padding-top: 60px;
 
   @media (max-width: ${custom.breakpoints.sm}) {
     font-size: ${custom.typography.fontSize.xl};
     margin: ${custom.spacing.lg} 0;
+    padding-top: 50px;
   }
 `;
 
@@ -47,10 +56,12 @@ const ProductGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: ${custom.spacing.lg};
   padding: ${custom.spacing.lg} 0;
+  margin-top: ${custom.spacing.md};
 
   @media (max-width: ${custom.breakpoints.sm}) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: ${custom.spacing.md};
+    padding: ${custom.spacing.md} 0;
   }
 `;
 
@@ -159,6 +170,18 @@ const CategoryPage: React.FC = () => {
   const navigate = useNavigate();
   const products = categoryName ? categoryProducts[categoryName as keyof typeof categoryProducts] || [] : [];
 
+  // Scroll to top when component mounts or category changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [categoryName]);
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+
   if (!categoryName) {
     return <div>Category not found</div>;
   }
@@ -167,7 +190,7 @@ const CategoryPage: React.FC = () => {
 
   return (
     <CategoryContainer>
-      <BackButton onClick={() => navigate('/')}>
+      <BackButton onClick={handleBackClick}>
         <ArrowBackIcon />
       </BackButton>
       <CategoryTitle>
