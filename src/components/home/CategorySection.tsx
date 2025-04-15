@@ -5,15 +5,15 @@ import { Typography, Grid } from '@mui/material';
 import { customThemeProps as custom } from '../../config/theme';
 
 // Icons using emojis
-const HairIcon = () => <span>🎀</span>; // Use Ribbon Emoji
-const NecklaceIcon = () => <span>💎</span>; // Use Diamond Emoji
-const BraceletIcon = () => <span>🦄</span>; // Use Unicorn Emoji
-const EarringIcon = () => <span>✨</span>; // Use Sparkles Emoji
+const HairIcon = () => <span>🎀</span>;
+const NecklaceIcon = () => <span>💎</span>;
+const BraceletIcon = () => <span>🦄</span>;
+const EarringIcon = () => <span>✨</span>;
 
 const SectionContainer = styled.section`
   padding: ${custom.spacing.lg} ${custom.spacing.md};
   max-width: 1200px;
-  margin: ${custom.spacing.xl} auto; // Add top margin
+  margin: ${custom.spacing.xl} auto;
 
   @media (max-width: ${custom.breakpoints.sm}) {
     padding: ${custom.spacing.md} ${custom.spacing.sm};
@@ -22,11 +22,11 @@ const SectionContainer = styled.section`
 `;
 
 const SectionTitle = styled(Typography)`
-  color: ${custom.colors.text.secondary}; // Softer color
+  color: ${custom.colors.text.secondary};
   margin-bottom: ${custom.spacing.lg};
   text-align: center;
   font-weight: ${custom.typography.fontWeight.regular};
-  font-size: ${custom.typography.fontSize.lg}; // Smaller size
+  font-size: ${custom.typography.fontSize.lg};
 
   @media (max-width: ${custom.breakpoints.sm}) {
     font-size: ${custom.typography.fontSize.md};
@@ -37,17 +37,17 @@ const SectionTitle = styled(Typography)`
 const CategoryCard = styled.div`
   padding: ${custom.spacing.lg};
   border-radius: ${custom.borderRadius.lg};
-  background: ${custom.colors.background.light}; // White/Light background
+  background: ${custom.colors.background.light};
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: ${custom.shadows.small}; // Softer shadow
-  height: 180px; // Fixed height for consistency
+  box-shadow: ${custom.shadows.small};
+  height: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${custom.colors.background.dark}; // Subtle border
+  border: 1px solid ${custom.colors.background.dark};
 
   &:hover {
     transform: translateY(-5px);
@@ -64,20 +64,19 @@ const CategoryCard = styled.div`
 const CategoryIcon = styled.div`
   margin-bottom: ${custom.spacing.md};
   color: ${custom.colors.primary};
-  font-size: 48px; // Set font size for emojis
-  line-height: 1; // Ensure emojis align well if wrapped in span
+  font-size: 48px;
+  line-height: 1;
 
-  // Style for images within the icon container
   img {
-    display: block; // Prevent extra space below image
+    display: block;
     width: 48px;
     height: 48px;
   }
 `;
 
 const CategoryTitle = styled(Typography)`
-  margin-bottom: ${custom.spacing.xs}; // Less space
-  color: ${custom.colors.text.primary}; // Darker text
+  margin-bottom: ${custom.spacing.xs};
+  color: ${custom.colors.text.primary};
   font-weight: ${custom.typography.fontWeight.medium};
   font-size: ${custom.typography.fontSize.md};
 
@@ -87,7 +86,7 @@ const CategoryTitle = styled(Typography)`
 `;
 
 const CategoryDescription = styled(Typography)`
-  color: ${custom.colors.text.secondary}; // Secondary text color
+  color: ${custom.colors.text.secondary};
   font-size: ${custom.typography.fontSize.sm};
   line-height: 1.4;
 
@@ -96,7 +95,6 @@ const CategoryDescription = styled(Typography)`
   }
 `;
 
-// Updated categories based on the image
 const categories = [
   {
     name: 'hair-accessories',
@@ -132,6 +130,9 @@ const CategorySection: React.FC = () => {
   const navigate = useNavigate();
 
   const handleCategoryClick = (categoryName: string) => {
+    // First scroll to top
+    window.scrollTo(0, 0);
+    // Then navigate to the category page
     navigate(`/category/${categoryName}`);
   };
 

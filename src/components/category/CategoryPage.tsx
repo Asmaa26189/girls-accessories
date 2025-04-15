@@ -11,27 +11,20 @@ const CategoryContainer = styled.div`
   background: ${custom.colors.background.gradient};
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
 `;
 
 const BackButton = styled(IconButton)`
-  position: fixed;
+  position: absolute;
   top: ${custom.spacing.lg};
   left: ${custom.spacing.lg};
   color: ${custom.colors.text.primary};
   background: ${custom.colors.background.light};
   box-shadow: ${custom.shadows.medium};
   transition: transform 0.3s ease;
-  z-index: 10;
 
   &:hover {
     transform: translateX(-4px);
     background: ${custom.colors.background.light};
-  }
-
-  @media (max-width: ${custom.breakpoints.sm}) {
-    top: ${custom.spacing.md};
-    left: ${custom.spacing.md};
   }
 `;
 
@@ -42,13 +35,6 @@ const CategoryTitle = styled.h1`
   font-size: ${custom.typography.fontSize.xxl};
   font-weight: ${custom.typography.fontWeight.bold};
   text-shadow: ${custom.shadows.glow};
-  padding-top: 60px;
-
-  @media (max-width: ${custom.breakpoints.sm}) {
-    font-size: ${custom.typography.fontSize.xl};
-    margin: ${custom.spacing.lg} 0;
-    padding-top: 50px;
-  }
 `;
 
 const ProductGrid = styled.div`
@@ -56,13 +42,6 @@ const ProductGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: ${custom.spacing.lg};
   padding: ${custom.spacing.lg} 0;
-  margin-top: ${custom.spacing.md};
-
-  @media (max-width: ${custom.breakpoints.sm}) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: ${custom.spacing.md};
-    padding: ${custom.spacing.md} 0;
-  }
 `;
 
 const ProductImage = styled.img`
@@ -70,10 +49,6 @@ const ProductImage = styled.img`
   height: 300px;
   object-fit: cover;
   display: block;
-
-  @media (max-width: ${custom.breakpoints.sm}) {
-    height: 200px;
-  }
 `;
 
 const ProductOverlay = styled.div`
@@ -98,20 +73,12 @@ const ProductTitle = styled.h3`
   font-weight: ${custom.typography.fontWeight.medium};
   margin-bottom: ${custom.spacing.sm};
   text-align: center;
-
-  @media (max-width: ${custom.breakpoints.sm}) {
-    font-size: ${custom.typography.fontSize.md};
-  }
 `;
 
 const ProductPrice = styled.span`
   color: ${custom.colors.accent};
   font-size: ${custom.typography.fontSize.md};
   font-weight: ${custom.typography.fontWeight.bold};
-
-  @media (max-width: ${custom.breakpoints.sm}) {
-    font-size: ${custom.typography.fontSize.sm};
-  }
 `;
 
 const ProductCard = styled.div`
@@ -172,10 +139,18 @@ const CategoryPage: React.FC = () => {
 
   // Scroll to top when component mounts or category changes
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    // First scroll instantly to top
+    window.scrollTo(0, 0);
+    
+    // Then add a small delay and scroll smoothly to ensure it works on all devices
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [categoryName]);
 
   const handleBackClick = () => {
