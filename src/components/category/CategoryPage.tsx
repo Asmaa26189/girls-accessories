@@ -123,28 +123,34 @@ const ProductCard = styled.div`
 // Sample product data - replace with your actual data
 const categoryProducts = {
   'hair-accessories': [
-    { id: 1, title: 'Starfish Hair Clip', price: '$15.99', image: 'https://images.unsplash.com/photo-1589203943389-461e6387e1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { id: 2, title: 'Pearl Headband', price: '$24.99', image: 'https://images.unsplash.com/photo-1606901885696-eedf5d525c10?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { id: 1, title: 'Starfish Hair Clip', price: '$15.99', image: '/images/products/bracelets/1.jpg' },
+    { id: 2, title: 'Pearl Headband', price: '$24.99', image: '/images/products/bracelets/2.jpg' },
+    { id: 3, title: 'Crystal Hair Pin Set', price: '$19.99', image: '/images/products/bracelets/3.jpg' },
+    { id: 4, title: 'Floral Hair Clips', price: '$12.99', image: '/images/products/bracelets/4.jpg' }
   ],
   necklaces: [
-    { id: 1, title: 'Pearl Necklace', price: '$49.99', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { id: 2, title: 'Crystal Pendant', price: '$39.99', image: 'https://images.unsplash.com/photo-1610050080903-d49169536a08?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    // Add more products
+    { id: 1, title: 'Pearl Necklace', price: '$49.99', image: '/images/products/bracelets/1.jpg' },
+    { id: 2, title: 'Crystal Pendant', price: '$39.99', image: '/images/products/bracelets/2.jpg' },
+    { id: 3, title: 'Gold Chain', price: '$59.99', image: '/images/products/bracelets/3.jpg' },
+    { id: 4, title: 'Layered Necklace', price: '$45.99', image: '/images/products/bracelets/4.jpg' }
   ],
   earrings: [
-    { id: 1, title: 'Starfish Earrings', price: '$29.99', image: 'https://images.unsplash.com/photo-1616606040168-fe49770656ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { id: 2, title: 'Shell Studs', price: '$19.99', image: 'https://images.unsplash.com/photo-1583904669804-878b0e0658c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    // Add more products
+    { id: 1, title: 'Crystal Drop Earrings', price: '$29.99', image: '/images/products/bracelets/1.jpg' },
+    { id: 2, title: 'Pearl Studs', price: '$19.99', image: '/images/products/bracelets/2.jpg' },
+    { id: 3, title: 'Gold Hoops', price: '$34.99', image: '/images/products/bracelets/3.jpg' },
+    { id: 4, title: 'Butterfly Earrings', price: '$24.99', image: '/images/products/bracelets/4.jpg' }
   ],
   bracelets: [
-    { id: 1, title: 'Sea Glass Bracelet', price: '$34.99', image: 'https://images.unsplash.com/photo-1591811261131-2478a8d51466?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { id: 2, title: 'Pearl Bangle', price: '$44.99', image: 'https://images.unsplash.com/photo-1600868039189-16b6191083ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    // Add more products
+    { id: 1, title: 'Crystal Tennis Bracelet', price: '$34.99', image: '/images/products/bracelets/1.jpg' },
+    { id: 2, title: 'Pearl Bangle', price: '$44.99', image: '/images/products/bracelets/2.jpg' },
+    { id: 3, title: 'Charm Bracelet', price: '$39.99', image: '/images/products/bracelets/3.jpg' },
+    { id: 4, title: 'Gold Chain Bracelet', price: '$49.99', image: '/images/products/bracelets/4.jpg' }
   ],
   rings: [
-    { id: 1, title: 'Mermaid Ring', price: '$39.99', image: 'https://images.unsplash.com/photo-1605100804763-2fdd55c43870?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { id: 2, title: 'Shell Band', price: '$29.99', image: 'https://images.unsplash.com/photo-1583876480051-54a69f46b047?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    // Add more products
+    { id: 1, title: 'Crystal Ring', price: '$39.99', image: '/images/products/bracelets/1.jpg' },
+    { id: 2, title: 'Pearl Ring', price: '$29.99', image: '/images/products/bracelets/2.jpg' },
+    { id: 3, title: 'Gold Band', price: '$44.99', image: '/images/products/bracelets/3.jpg' },
+    { id: 4, title: 'Statement Ring', price: '$49.99', image: '/images/products/bracelets/4.jpg' }
   ]
 };
 
