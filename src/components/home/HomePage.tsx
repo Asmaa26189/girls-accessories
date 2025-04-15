@@ -4,6 +4,7 @@ import { customThemeProps as custom } from '../../config/theme';
 import Logo from '../common/Logo';
 import HeroSection from './HeroSection';
 import CategorySection from './CategorySection';
+import OwnerSection from './OwnerSection';
 
 const LogoWrapper = styled.div`
   padding: ${custom.spacing.lg};
@@ -29,17 +30,25 @@ const MainContent = styled.main`
   }
 `;
 
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: ${custom.colors.background.gradient};
+`;
+
 const HomePage: React.FC = () => {
   return (
-    <>
+    <HomeContainer>
       <LogoWrapper>
         <Logo size="large" />
       </LogoWrapper>
       <MainContent>
         <HeroSection />
         <CategorySection />
+        <OwnerSection />
       </MainContent>
-    </>
+    </HomeContainer>
   );
 };
 
