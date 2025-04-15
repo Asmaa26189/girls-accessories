@@ -5,24 +5,39 @@ import { customThemeProps as custom } from '../../config/theme';
 // Styled components for the logo
 const LogoContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: ${custom.spacing.sm};
-  position: relative;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: ${custom.spacing.sm};
+
+  @media (max-width: ${custom.breakpoints.sm}) {
+    padding: ${custom.spacing.xs};
+  }
 `;
 
 const LogoText = styled.h1`
-  font-family: ${custom.typography.fontFamily};
-  font-size: ${custom.typography.fontSize.xl};
-  color: ${custom.colors.primary};
-  margin: 0;
-  font-weight: ${custom.typography.fontWeight.bold};
-  letter-spacing: 1px;
-  
-  // Add dreamy effect with text shadow
+  color: ${custom.colors.text.primary};
   text-shadow: 
-    0 0 10px ${custom.colors.mermaid.shell}80,
-    0 0 20px ${custom.colors.mermaid.foam}60,
-    0 0 30px ${custom.colors.mermaid.coral}40;
+    2px 2px 4px ${custom.colors.mermaid.shell},
+    -2px -2px 4px ${custom.colors.mermaid.foam},
+    2px -2px 4px ${custom.colors.mermaid.coral};
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  font-family: ${custom.typography.fontFamily};
+  transition: all 0.3s ease;
+
+  @media (max-width: ${custom.breakpoints.sm}) {
+    font-size: 2rem !important; // Override size styles for mobile
+    line-height: 1.2;
+    text-shadow: 
+      1px 1px 2px ${custom.colors.mermaid.shell},
+      -1px -1px 2px ${custom.colors.mermaid.foam},
+      1px -1px 2px ${custom.colors.mermaid.coral};
+  }
 `;
 
 const ShellIcon = styled.div`
@@ -111,28 +126,37 @@ const StarIcon = styled.div`
   }
 `;
 
+const getSizeStyles = (size?: 'small' | 'medium' | 'large') => {
+  switch (size) {
+    case 'small':
+      return {
+        fontSize: '2rem',
+      };
+    case 'medium':
+      return {
+        fontSize: '3rem',
+      };
+    case 'large':
+      return {
+        fontSize: '4rem',
+      };
+    default:
+      return {
+        fontSize: '3rem',
+      };
+  }
+};
+
 interface LogoProps {
   size?: 'small' | 'medium' | 'large';
 }
 
 const Logo: React.FC<LogoProps> = ({ size = 'medium' }) => {
-  // Size variations for the logo
-  const getSizeStyles = () => {
-    switch (size) {
-      case 'small':
-        return { fontSize: custom.typography.fontSize.lg };
-      case 'large':
-        return { fontSize: custom.typography.fontSize.xxl };
-      default:
-        return { fontSize: custom.typography.fontSize.xl };
-    }
-  };
-
   return (
     <LogoContainer>
-      <ShellIcon />
-      <LogoText style={getSizeStyles()}>Dreamy Accessories</LogoText>
-      <StarIcon />
+      <LogoText style={getSizeStyles(size)}>
+        Dreamy Accessories
+      </LogoText>
     </LogoContainer>
   );
 };
