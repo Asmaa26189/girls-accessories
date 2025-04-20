@@ -123,10 +123,11 @@ const OwnerSection: React.FC = () => {
       <SharedDescription>
         With a passion for beautiful accessories and a keen eye for design, Tia and Lili founded Girls Accessories in 2024. 
         Today, they lead a team of talented designers who share their vision of bringing elegance and charm to every piece.
-      </SharedDescription>
-      <OwnerQuote>
+        <OwnerQuote>
         "Every piece tells a story. We want our customers to feel special and confident when they wear our accessories."
       </OwnerQuote>
+      </SharedDescription>
+    
     </OwnerContainer>
   );
 };
