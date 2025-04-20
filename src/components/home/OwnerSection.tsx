@@ -28,25 +28,38 @@ const OwnerTitle = styled(Typography)`
   margin-bottom: ${custom.spacing.lg};
 `;
 
-const OwnerContent = styled.div`
+const OwnersWrapper = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: ${custom.spacing.xl};
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 
   @media (max-width: ${custom.breakpoints.sm}) {
     flex-direction: column;
+    align-items: center;
     gap: ${custom.spacing.lg};
   }
 `;
 
+const OwnerCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${custom.spacing.md};
+  flex: 1;
+  max-width: 350px;
+`;
+
 const OwnerImage = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: ${custom.shadows.medium};
   border: 4px solid ${custom.colors.primary};
+  margin-bottom: ${custom.spacing.md};
 
   @media (max-width: ${custom.breakpoints.sm}) {
     width: 200px;
@@ -55,22 +68,24 @@ const OwnerImage = styled.img`
 `;
 
 const OwnerInfo = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: ${custom.spacing.md};
+  text-align: center;
 `;
 
 const OwnerName = styled(Typography)`
   color: ${custom.colors.text.primary};
   font-size: ${custom.typography.fontSize.xl};
   font-weight: ${custom.typography.fontWeight.bold};
+  margin-bottom: ${custom.spacing.sm};
 `;
 
-const OwnerDescription = styled(Typography)`
+const SharedDescription = styled(Typography)`
   color: ${custom.colors.text.secondary};
   font-size: ${custom.typography.fontSize.md};
   line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: ${custom.spacing.xl} auto;
+  padding: 0 ${custom.spacing.md};
 `;
 
 const OwnerQuote = styled(Typography)`
@@ -78,50 +93,40 @@ const OwnerQuote = styled(Typography)`
   font-size: ${custom.typography.fontSize.lg};
   font-style: italic;
   margin-top: ${custom.spacing.md};
-  text-align: center;
 `;
 
 const OwnerSection: React.FC = () => {
   return (
     <OwnerContainer>
       <OwnerTitle>Meet Our Founders</OwnerTitle>
-      <OwnerContent>
-        <OwnerImage 
-          src="/images/Owner.jpg" 
-          alt="Founder of Girls Accessories"
-        />
-        <OwnerInfo>
-          <OwnerName>Tia Soliman</OwnerName>
-          <OwnerDescription>
-            With a passion for beautiful accessories and a keen eye for design, Tia founded Girls Accessories in 2024. 
-            What started as a small boutique has grown into a beloved destination for unique and stylish jewelry pieces.
-          </OwnerDescription>
-          <OwnerDescription>
-            Tia's journey began when she discovered her love for creating custom pieces for friends and family. 
-            Today, she leads a team of talented designers who share her vision of bringing elegance and charm to every piece.
-          </OwnerDescription>
-        </OwnerInfo>
-      </OwnerContent>
-      <OwnerContent>
-        <OwnerImage 
-          src="/images/Owner2.jpg" 
-          alt="Founder of Girls Accessories"
-        />
-        <OwnerInfo>
-          <OwnerName>Lili Mohamed</OwnerName>
-          <OwnerDescription>
-            With a passion for beautiful accessories and a keen eye for design, Lili founded Girls Accessories in 2024. 
-            What started as a small boutique has grown into a beloved destination for unique and stylish jewelry pieces.
-          </OwnerDescription>
-          <OwnerDescription>
-            Lili's journey began when she discovered her love for creating custom pieces for friends and family. 
-            Today, she leads a team of talented designers who share her vision of bringing elegance and charm to every piece.
-          </OwnerDescription>
-          <OwnerQuote>
-            "Every piece tells a story. I want our customers to feel special and confident when they wear our accessories."
-          </OwnerQuote>
-        </OwnerInfo>
-      </OwnerContent>
+      <OwnersWrapper>
+        <OwnerCard>
+          <OwnerImage 
+            src="/images/Owner.jpg" 
+            alt="Founder of Girls Accessories"
+          />
+          <OwnerInfo>
+            <OwnerName>Tia Soliman</OwnerName>
+          </OwnerInfo>
+        </OwnerCard>
+
+        <OwnerCard>
+          <OwnerImage 
+            src="/images/Owner2.jpg" 
+            alt="Founder of Girls Accessories"
+          />
+          <OwnerInfo>
+            <OwnerName>Lili Mohamed</OwnerName>
+          </OwnerInfo>
+        </OwnerCard>
+      </OwnersWrapper>
+      <SharedDescription>
+        With a passion for beautiful accessories and a keen eye for design, Tia and Lili founded Girls Accessories in 2024. 
+        Today, they lead a team of talented designers who share their vision of bringing elegance and charm to every piece.
+      </SharedDescription>
+      <OwnerQuote>
+        "Every piece tells a story. We want our customers to feel special and confident when they wear our accessories."
+      </OwnerQuote>
     </OwnerContainer>
   );
 };
