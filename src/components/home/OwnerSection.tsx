@@ -80,7 +80,7 @@ const OwnerName = styled(Typography)`
 
 const SharedDescription = styled(Typography)`
   color: ${custom.colors.text.secondary};
-  font-size: ${custom.typography.fontSize.md};
+  font-size: ${custom.typography.fontSize.lg};
   line-height: 1.6;
   text-align: center;
   max-width: 800px;
