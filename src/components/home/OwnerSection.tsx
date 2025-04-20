@@ -84,7 +84,7 @@ const OwnerQuote = styled(Typography)`
 const OwnerSection: React.FC = () => {
   return (
     <OwnerContainer>
-      <OwnerTitle>Meet Our Founder</OwnerTitle>
+      <OwnerTitle>Meet Our Founders</OwnerTitle>
       <OwnerContent>
         <OwnerImage 
           src="/images/Owner.jpg" 
@@ -98,6 +98,23 @@ const OwnerSection: React.FC = () => {
           </OwnerDescription>
           <OwnerDescription>
             Tia's journey began when she discovered her love for creating custom pieces for friends and family. 
+            Today, she leads a team of talented designers who share her vision of bringing elegance and charm to every piece.
+          </OwnerDescription>
+        </OwnerInfo>
+      </OwnerContent>
+      <OwnerContent>
+        <OwnerImage 
+          src="/images/Owner2.jpg" 
+          alt="Founder of Girls Accessories"
+        />
+        <OwnerInfo>
+          <OwnerName>Lili Mohamed</OwnerName>
+          <OwnerDescription>
+            With a passion for beautiful accessories and a keen eye for design, Lili founded Girls Accessories in 2024. 
+            What started as a small boutique has grown into a beloved destination for unique and stylish jewelry pieces.
+          </OwnerDescription>
+          <OwnerDescription>
+            Lili's journey began when she discovered her love for creating custom pieces for friends and family. 
             Today, she leads a team of talented designers who share her vision of bringing elegance and charm to every piece.
           </OwnerDescription>
           <OwnerQuote>
